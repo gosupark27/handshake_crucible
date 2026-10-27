@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import {create,player,start,intent,tick,view,resolve} from '../lib/game.ts';
+const setup=()=>{let r=create('TEST');while(r.players.length<4)r.players.push(player(false,r.players.length));start(r,Date.now());return r};
+let r=setup(),now=Date.now();for(const p of r.players){intent(r,p,{type:'promise',value:'give',round:0},now);intent(r,p,{type:'act',value:'give',round:0},now)}assert.equal(r.phase,'ended');assert.equal(r.players.filter(p=>p.sacrificed).length,4);const ledger=r.ledger.length;resolve(r,now);assert.equal(r.ledger.length,ledger);
+r=setup();let p=r.players[0];intent(r,p,{type:'promise',value:'give',round:0},now);intent(r,p,{type:'act',value:'give',round:0},now);assert.throws(()=>intent(r,p,{type:'act',value:'give',round:0},now));const v=JSON.stringify(view(r,p));for(const x of r.players)assert.ok(!v.includes(x.token));assert.ok(!v.includes('"sab"'));assert.ok(!v.includes('"elo"'));
+r=setup();r.players.forEach(p=>p.seen=now+61000);tick(r,now+61000);assert.equal(r.round,1);assert.throws(()=>intent(r,r.players[0],{type:'promise',value:'wait',round:0},now+61001));
+r=setup();r.players[3].sab=true;for(let i=0;i<3;i++)intent(r,r.players[i],{type:'vote',target:r.players[3].id,round:0},now);assert.equal(r.phase,'prodigal');intent(r,r.players[3],{type:'confess'},now);assert.equal(r.phase,'live');assert.equal(r.players[3].sab,false);assert.equal(r.players.length,4);
+r=setup();assert.throws(()=>intent(r,r.players[1],{type:'bots'},now));assert.throws(()=>intent(r,r.players[1],{type:'start'},now));console.log('PASS: peace, idempotency, secret filtering, timeout, stale intent, majority vote, confession, host authority');
