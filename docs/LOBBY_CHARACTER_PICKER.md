@@ -1,6 +1,10 @@
-> Update: Implemented in the release-4 candidate and verified locally. See [release evidence](RELEASE_VERIFICATION.md) for exact tests and deployment status. The original request below is retained as history. Physical/deployed checks remain separate.
+# Lobby character picker — current status and historical intake
 
-# Lobby character picker — approved, not implemented
+**Current:** implemented, verified locally, and deployed in version 4 (`455ac22`). Physical/deployed checks remain bounded by [release evidence](RELEASE_VERIFICATION.md). Later refinements are tracked in [the session reconciliation](SESSION_RECONCILIATION.md).
+
+## Historical intake before the original hard stop
+
+The following text describes the state at intake, before the deadline extension and version-4 execution. It is retained as history and is superseded by the current status above.
 
 Josh approved this addition during the October 30 session. The request arrived at approximately 11:39 PM Phoenix, immediately before the explicit 11:40 PM hard stop. It has not been implemented, tested, or deployed. Version 3 remains the public release.
 

@@ -1,6 +1,10 @@
-> Update: Implemented in the release-4 candidate and verified locally. See [release evidence](RELEASE_VERIFICATION.md) for exact tests and deployment status. The original request below is retained as history. Physical/deployed checks remain separate.
+# Sound control refinement — current status and historical intake
 
-# Sound control refinement — approved, not implemented
+**Current:** implemented, verified locally, and deployed in version 4 (`455ac22`). Physical/deployed checks remain bounded by [release evidence](RELEASE_VERIFICATION.md). Later refinements are tracked in [the session reconciliation](SESSION_RECONCILIATION.md).
+
+## Historical intake before the original hard stop
+
+The following text describes the state at intake, before the deadline extension and version-4 execution. It is retained as history and is superseded by the current status above.
 
 Keep the existing public URL. This follow-up was received immediately before the 11:40 PM Phoenix session hard stop. No new sound-control release or deployed failure test is claimed.
 

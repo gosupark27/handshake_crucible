@@ -15,6 +15,8 @@ A multiplayer social-decision prototype: travelers make a public promise, commit
 
 Rooms allow 4–8 seats, expire after 24 hours, and keep the current seat in the original browser tab. The introduction includes a separate solo illustration; that illustration is not a multiplayer session. No recorded playthrough is supplied yet. A 45-second manual screen recording is a fallback; edited waiting should be labeled, and a recording does not prove multiplayer synchronization.
 
+See the [post-submission recap and ticket backlog](docs/SESSION_RECONCILIATION.md) for current priorities and the latest design diffs.
+
 See the [staged delivery log](docs/STAGED_DELIVERY.md) for approved, implemented, verified, and deployed status by revision.
 
 ## Scope and evidence
