@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "create and repeated tap guard",
+    "copy link without host credential",
+    "second independent browser prefill and distinct seat",
+    "same-tab reload restores seat",
+    "copy code",
+    "clipboard failure fallback",
+    "pasted lowercase spaced code",
+    "invalid/expired code error",
+    "full room error",
+    "320–430px no overflow and invite controls >=44px",
+    "no browser exceptions"
+  ],
+  "limitations": [
+    "Local Chromium emulation, not physical phones",
+    "Timer synchronization and physical audio remain unverified"
+  ]
+}

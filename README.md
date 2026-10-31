@@ -1,133 +1,79 @@
-# vinext-starter
+# Handshake Crucible
 
-A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.
+**Public game preview:** [Play Handshake](https://handshake-dawn-jj.chalkyfinch36.chatgpt.site/play) · [Introduction](https://handshake-dawn-jj.chalkyfinch36.chatgpt.site/landing.html)
 
-## Prerequisites
+A multiplayer social-decision prototype: travelers make a public promise, commit a sealed action, and see the accepted outcome in a shared ledger. Josh Park directs the experience and evaluates it through play feedback. AI assists with specification, implementation, testing, and review.
 
-- Node.js `>=22.13.0`
-- Portable: Windows, macOS, or Linux; no Bash required
-- Managed Linux: managed Linux runtime with Bash, `flock`, `curl`, `sha256sum`, and GNU `timeout`
-- Git and `tar` (including Windows `tar.exe`) are required for publishing; portable publication does not require Bash
+**Release status:** The existing public preview is available. The release candidate in this repository has been tested locally against a built Cloudflare Worker; publication and physical two-phone checks are recorded separately. Approval is authorization to attempt work, not evidence that it succeeded. See [the release evidence](docs/RELEASE_VERIFICATION.md) for the tested revision and deployment status.
 
-## Sites Lifecycle
+## What to try
 
-The Sites initializer copies the shared starter and selects managed-linux only when `SITES_MANAGED_LINUX_CONTAINER=1`; otherwise it selects portable. It saves the selection only in ignored `.sites-runtime/execution-profile.json`. Both profiles copy/configure first, then use the plugin's separate `install-dependencies.mjs` step to measure installation independently. Edit source under `app/` and follow the Sites skill for installation, preview, builds, and publishing.
+1. Choose **Create a room**, then **Copy invite link** or **Copy code**.
+2. Open the invitation in another browser/phone. Confirm the code, then choose **Join room**. Each participant receives a distinct private seat credential; invitations contain only the room code.
+3. Invite four travelers, or use **Fill to four with companions**. The host begins the journey.
+4. Give your word, then commit an action. Follow the scene, countdown, and server event ledger into the next crossing.
 
-Run `node <plugin-root>/scripts/configure-execution-profile.mjs` only when the profile is unknown for the current checkout and environment. Profile changes do not alter tracked source or require reinstalling otherwise-valid dependencies; restart an existing preview to use the new selection. Do not commit or upload `.sites-runtime/`.
+Rooms allow 4–8 seats, expire after 24 hours, and keep the current seat in the original browser tab. The introduction includes a separate solo illustration; that illustration is not a multiplayer session. No recorded playthrough is supplied yet. A 45-second manual screen recording is a fallback; edited waiting should be labeled, and a recording does not prove multiplayer synchronization.
 
-This starter does not use `wrangler.jsonc`.
+## Scope and evidence
 
-Publish archives outside the source checkout or under its ignored `outputs/` directory. Local `.env*`, `.dev.vars*`, TypeScript build state, and tool runtime directories are ignored; keep the hosting manifest, migrations, and authored scripts in source control.
+| Feature | Approved | Implemented | Verified |
+|---|---|---|---|
+| Room creation, invite link/code, explicit joining | Yes | Yes | Local two-session room flow; physical phone check pending |
+| Readable room code, copy fallback, pasted codes, lobby seat count | Yes | Yes | Local phone-width browser checks; see evidence |
+| Timer stability and recovery | Yes | Monotonic elapsed-time display; response phase identity/state version; reconnect refresh | Controlled local clock, background, reconnect, delayed-response tests; production symptoms require follow-up |
+| Sound toggle and round notifications | Yes | Gesture-unlocked reusable Web Audio context | Local context runs/mutes; audible phone output pending |
+| Solo companion progression after accepted decisions | Yes, separate scope addition | Yes | Engine regression test; human promise alone does not advance |
+| Stream-inspired ledger presentation | Yes | Yes; server events only | Build/browser check; no human chat implied |
+| Experimental Secret Elo and badges | Yes, exploration | No persistent ranking system | Not verified; existing private journey consistency score is not Elo matchmaking |
+| New resources, messaging/DMs, directory/spectators | Yes, exploration | Not implemented | Contracts and tests pending |
+| Claude/MCP participation, bot takeover, branching research | Yes, exploration | Not implemented | Integration, permissions, behavior contracts, and tests pending |
+| Custom domain | Deferred | No domain purchase or migration | Existing URL retained |
 
-`install:ci` runs `npm ci` once against the shared lockfile, disables parent-workspace discovery, and includes required dev/optional dependencies despite production/omit settings. Sharp defaults to prebuilt binaries unless explicitly configured otherwise. Do not overlap installers.
+The frozen design baseline and live implementation are distinct. Crucible begins from the available live snapshot, preserved at `live-snapshot-v2`. The complete historical frozen specification and old engine source were unavailable in this workspace, so full conformance is not claimed. [Provenance and interruption checkpoint](docs/LIVE_SNAPSHOT_CHECKPOINT.md).
 
-- **Portable:** Preserve host HOME, npm cache, registry, proxy, temporary paths, retry/concurrency settings, and lifecycle-script policy. Use `--prefer-offline --no-audit --no-fund`.
-- **Managed Linux:** Use the existing project-local HOME/cache/tmp setup and Linux install lock, tarball preflight, and timeout. Restore the image-seeded npm cache only when its lockfile hash matches; retain network fallback. Builds keep their existing timeout. These helpers are not invoked by the portable profile.
+## Conversational development workflow
 
-`scripts/sites-env.mjs` preserves the caller's HOME, npm cache, proxy, XDG, and temporary-directory configuration while defaulting Wrangler and Miniflare state to the checkout. If npm reports an unwritable cache, select a writable path with `npm_config_cache` for that install. The `dev` and `start` scripts also keep Wrangler logs inside the checkout. Generated `.sites-runtime/` and `.wrangler/` directories are disposable and ignored by Git.
+Josh supplies intent, constraints, creative direction, human play-test observations, and final decisions. AI supports written specifications, feasibility analysis, implementation, and evidence-based review. Voice dictation speeds input; written artifacts make decisions inspectable. Turn-taking conventions help coordinate the conversation but do not replace tests or source control.
 
-On portable, `npm run dev` uses `vinext dev` with HMR, starting at port 5173. Vinext records the running server in ignored `.vinext/` state, rejects an ordinary duplicate launch, and recovers stale state after a stopped process; exactly simultaneous starts can race. Pass `--port <port>` or `--hostname <host>` after `npm run dev --` when needed; keep portable previews on loopback.
+Three documentation review rounds preceded execution:
 
-For managed Linux browser QA, follow the Sites skill's managed preview reference. The daemon runs the project's Vite dev script with `--host 0.0.0.0 --port 4173 --strictPort`; use the CLI's returned URL. The ignored local profile survives the daemon's cleared environment.
+1. **Source and timing:** distinguish the frozen design from the live snapshot, preserve origin, and identify server-owned deadlines. Result: import with history preserved and a snapshot tag.
+2. **Interaction and privacy:** separate accepted events from chat, narration, and bots; distinguish shared room codes from private seat credentials. Result: bounded invitation flow; larger game-rule proposals remain separately labeled.
+3. **Acceptance and release:** consolidate mobile feedback, timing symptoms, scope boundaries, and rollback. Result: separate commits for invitations, timer, sound, solo progression, and presentation, with explicit verification limits.
 
-The portable profile simulates ChatGPT sign-in only for loopback development requests. Visit `/signin-with-chatgpt?return_to=/` to sign in as `local_seedy` (`seedy@sites.test`, display name `Seedy`) and `/signout-with-chatgpt?return_to=/` to sign out. The development cookie preserves that identity across server restarts. Mock auth is disabled in the managed-linux profile and is not included in production builds; hosted authentication remains dispatch-owned.
+The development claim rests on inspectable code and recorded checks, not conversation alone. Detailed conversation transcripts are kept separate from this README.
 
-The Worker uses `vinext/server/fetch-handler`, including Vinext's config-aware image handling. After building, `npm start` runs that Worker locally through Wrangler on `127.0.0.1`, sharing `.wrangler/state` with dev preview and local D1 migrations; it does not deploy the site or simulate sign-in. Use the URL printed by the server. Pass `npm start -- --port <port>` to select a different built-preview port.
+## Challenges and findings
 
-Local previews use Miniflare's placeholder `Request.cf` metadata without a network lookup. Set `CLOUDFLARE_CF_FETCH_ENABLED=true` to opt into fetching preview metadata; this setting does not change hosted request metadata.
+- **Incomplete checkout history:** the first import lacked parent commit objects. Available source files were intact. Fetching history resolved the import without rewriting commits; this is separate from unavailable historical frozen-engine material.
+- **Timer jumps:** a controlled browser test changed the client clock forward by a minute. The displayed timer fell from 60 to zero while the server phase/deadline stayed unchanged. After the focused fix, the same scenario showed 60 to 59. This explains one reproduced failure, not every reported freeze or late transition. Sanitized traces are in [evidence](docs/evidence/).
+- **Sound:** source inspection found audio context creation during network responses and phase-only triggering. The revised toggle unlocks audio during a gesture and round changes trigger cues. Physical phone output remains unverified.
+- **Execution interruption:** the workspace disconnected after import. No fixes were claimed during that interruption; a checkpoint was saved through GitHub. Execution resumed only when access returned.
+- **Build/preview restart:** rebuilding replaced asset filenames; restarting the local Worker was necessary before validating the new bundle. Stale asset failures are not counted as passing tests.
 
-Local tool usage metrics are disabled by default. Set `WRANGLER_SEND_METRICS=true` to opt in.
+## Run locally
 
-## Included Shape
-
-- edit site code under `app/`
-- `app/chatgpt-auth.ts` provides optional dispatch-owned ChatGPT sign-in helpers
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `worker/index.ts` is the production Worker entrypoint and preserves request-scoped connector bindings
-- `scripts/vite/` contains the maintained Vite integrations and the vendored Sites plugin license
-- `scripts/connector-preview/` contains the local connector preview Worker and session helpers
-- the remaining `scripts/` files select execution profiles and run installation, development, and builds; the plugin's helpers orchestrate the Sites lifecycle
-- `dist/` contains generated deployment output; `.vinext/`, `.wrangler/`, and `.sites-runtime/` contain ignored local tool state
-- `db/index.ts` reads the D1 binding from the Cloudflare Worker environment
-- `db/schema.ts` starts intentionally empty
-- `@cloudflare/workers-types` provides Worker types; `cloudflare-env.d.ts` declares optional `DB`/`BUCKET` bindings—update these declarations if binding names change
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
-
-## Workspace Auth Headers
-
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
-
-The user ID is stable for the same user on the same Site and different across Sites. Use it as the durable user key; use email and name for display or contact purposes.
-
-SIWC-authenticated workspace sites may also receive `oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty `name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by `oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
-
-Treat the full name as optional and fall back to email when it is absent:
-
-```tsx
-import { headers } from "next/headers";
-
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
-
-  const displayName = fullName ?? email;
-  // ...
-}
-```
-
-## Optional Dispatch-Owned ChatGPT Sign-In
-
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs optional or required ChatGPT sign-in:
-
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use the returned `userId` as the stable user key for user-owned records; do not use email as a durable identifier.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send anonymous visitors through Sign in with ChatGPT.
-- In a Server Component, start sign-in with `<a href={chatGPTSignInPath(returnTo)} target="_top">`. The auth helper module is server-only; do not import it into a Client Component.
-- Do not use `fetch`, XHR, a client-side router, or a framework link that can prefetch the sign-in route. SIWC must start as a top-level navigation.
-- Never request the AuthAPI authorization endpoint directly. The dispatch-owned `/signin-with-chatgpt` route must start the SIWC flow.
-- Use `chatGPTSignOutPath(returnTo)` for browser sign-out links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because they depend on per-request identity headers.
-
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the OAuth cookies, and identity header injection. Do not implement app routes for those reserved paths. Routes that do not import and call the helper remain anonymous-compatible.
-
-SIWC establishes identity only; it does not prove workspace membership. Use the Sites hosting platform's access policy controls for workspace-wide restrictions, or enforce explicit server-side membership or allowlist checks.
-
-Use SIWC for account pages, user-specific dashboards, saved records, and write actions tied to the current ChatGPT user. Leave public content anonymous.
-
-## Local D1 migrations
-
-For a D1-backed local preview, generate SQL with `npm run db:generate`. Build once through the Sites skill's build entrypoint (or `npm run build` for standalone use) to generate `dist/server/wrangler.json`, rebuilding if bindings change. From the project root, apply each pending migration in order:
+Requires Node.js 24+ (for direct TypeScript tests) and the pinned pnpm version in `package.json`.
 
 ```sh
-node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_example.sql
+corepack pnpm install --frozen-lockfile
+corepack pnpm build
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_clammy_felicia_hardy.sql
+corepack pnpm start
 ```
 
-Replace the filename with the pending migration and `DB` with your D1 binding name if different. Use `.wrangler/state`, not `.wrangler/state/v3`; Wrangler adds the versioned directories. Do not replay migrations already applied locally. This updates only the preview database; publishing applies production migrations separately.
+Use the printed local origin. For source development, `corepack pnpm dev` runs the existing Vinext preview. D1 room data stays in ignored `.wrangler/state`. Production bindings are supplied by the authorized Sites deployment; never commit credentials or local runtime data.
 
-## Diagnostic Commands
+```sh
+node --test tests/game.test.mjs tests/room-clock.test.mjs tests/solo.test.mjs
+TEST_ORIGIN=http://localhost:8787 node tests/api.mjs
+```
 
-- `npm run install:ci`: perform the one locked dependency install
-- `npm run dev`: start the Vite/Vinext development server
-- `npm run build`: build the deployable Sites artifact
-- `npm run start`: preview the built Worker locally with D1/R2 support
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+## Known limits
 
-When using the Sites plugin, follow its skill instructions for installation, builds, and publishing. These npm commands remain available for standalone use.
+Server transitions are request-driven; unattended scheduling is not provided. Browser countdowns do not authorize outcomes. Seat recovery uses session storage in the original tab; there is no account-based recovery. Existing timeout/autopilot behavior is not adaptive bot takeover. Ratings describe in-game promise/action consistency, not a person's character. Current checks use local Chromium and a local D1 database; physical Safari/Android and public two-phone play remain distinct checks.
 
-The portable build runs Vinext directly without a host `timeout` command. The managed-linux build uses `scripts/build-verified.sh` and its existing `SITES_BUILD_TIMEOUT` setting.
+## Stack and attribution
 
-## Learn More
-
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+React, TypeScript, Vinext/Vite, Cloudflare Workers, and D1. The retained Vinext starter and its authored Sites integration remain in the repository; dependency licenses apply to their respective packages. No new license grant or claim of ownership over dependencies is made here.

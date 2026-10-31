@@ -1,0 +1,20 @@
+{
+  "before": {
+    "display": "60\nSECONDS REMAIN",
+    "snapshot": {
+      "phase": "live",
+      "round": 0,
+      "deadline": 1793428063211,
+      "serverNow": 1793428003214
+    }
+  },
+  "after": {
+    "display": "0\nSECONDS REMAIN",
+    "snapshot": {
+      "phase": "live",
+      "round": 0,
+      "deadline": 1793428063211,
+      "serverNow": 1793428003214
+    }
+  }
+}

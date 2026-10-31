@@ -1,0 +1,201 @@
+{
+  "passed": true,
+  "checks": [
+    "Two independent sessions share phase and deadline",
+    "Countdowns within one second including skewed wall clock",
+    "Confirmed action once per seat",
+    "Background frozen guest catches up after next phase",
+    "Sound context running on toggle gesture, suspended when muted"
+  ],
+  "traces": [
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:lobby:0",
+      "stateVersion": 0,
+      "deadline": 0,
+      "serverNow": 1793428143221,
+      "received": 1793428143239
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:lobby:0",
+      "stateVersion": 1,
+      "deadline": 0,
+      "serverNow": 1793428143527,
+      "received": 1793428143549
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:lobby:0",
+      "stateVersion": 2,
+      "deadline": 0,
+      "serverNow": 1793428145755,
+      "received": 1793428145765
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:lobby:0",
+      "stateVersion": 3,
+      "deadline": 0,
+      "serverNow": 1793428145898,
+      "received": 1793428145910
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 4,
+      "deadline": 1793428175950,
+      "serverNow": 1793428145956,
+      "received": 1793428145983
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 5,
+      "deadline": 1793428175950,
+      "serverNow": 1793428146058,
+      "received": 1793428146079
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 6,
+      "deadline": 1793428175950,
+      "serverNow": 1793428146813,
+      "received": 1793428146824
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 7,
+      "deadline": 1793428175950,
+      "serverNow": 1793428146885,
+      "received": 1793428146896
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 8,
+      "deadline": 1793428175950,
+      "serverNow": 1793428146950,
+      "received": 1793428146972
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 9,
+      "deadline": 1793428175950,
+      "serverNow": 1793428147030,
+      "received": 1793428147046
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 10,
+      "deadline": 1793428175950,
+      "serverNow": 1793428148494,
+      "received": 1793428148502
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 11,
+      "deadline": 1793428175950,
+      "serverNow": 1793428148604,
+      "received": 1793428148613
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 12,
+      "deadline": 1793428175950,
+      "serverNow": 1793428150991,
+      "received": 1793428150996
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 13,
+      "deadline": 1793428175950,
+      "serverNow": 1793428151093,
+      "received": 1793428151101
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 14,
+      "deadline": 1793428175950,
+      "serverNow": 1793428153492,
+      "received": 1793428153502
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 15,
+      "deadline": 1793428175950,
+      "serverNow": 1793428153593,
+      "received": 1793428153599
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 16,
+      "deadline": 1793428175950,
+      "serverNow": 1793428155993,
+      "received": 1793428155999
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 17,
+      "deadline": 1793428175950,
+      "serverNow": 1793428156090,
+      "received": 1793428156097
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 18,
+      "deadline": 1793428175950,
+      "serverNow": 1793428158497,
+      "received": 1793428158506
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:0:live:1793428175950",
+      "stateVersion": 19,
+      "deadline": 1793428175950,
+      "serverNow": 1793428158623,
+      "received": 1793428158633
+    },
+    {
+      "client": "host",
+      "phase": "H6C8AVTYZHQQ:1:live:1793428190989",
+      "stateVersion": 20,
+      "deadline": 1793428190989,
+      "serverNow": 1793428160991,
+      "received": 1793428161002
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:1:live:1793428190989",
+      "stateVersion": 21,
+      "deadline": 1793428190989,
+      "serverNow": 1793428161089,
+      "received": 1793428161099
+    },
+    {
+      "client": "guest",
+      "phase": "H6C8AVTYZHQQ:1:live:1793428190989",
+      "stateVersion": 22,
+      "deadline": 1793428190989,
+      "serverNow": 1793428161455,
+      "received": 1793428161463
+    }
+  ],
+  "limitations": [
+    "Local Chromium on worker preview; not public origin or physical phones",
+    "No claim of audible output on user phone",
+    "No unattended room scheduling"
+  ]
+}
