@@ -27,3 +27,13 @@ Physical test for Josh and Joseph: create room, copy invite, open on the second 
 Known unresolved scope: persistent Secret Elo, new resources, chat/DMs, directory/spectators, autonomous scheduling and external agent integration. Approval is recorded; implementation is not claimed. The existing public URL is retained; no domain was purchased. The portfolio is unchanged.
 
 Browser test reproduction (optional Playwright installation required): set `PLAYWRIGHT_MODULE` to your Playwright package, `CHROMIUM_PATH` to the browser executable, and `TEST_ORIGIN` to the local built preview, then run the scripts under `tests/browser/`. Their sanitized reports/screenshots are written under `/tmp`. The recorded evidence was produced by the equivalent executor scripts against the runtime revision identified above.
+
+## Next release candidate
+
+Runtime revision: `b01286d` (all runtime changes through voting participation correction). Environment: locally built Cloudflare Worker, local D1, two independent Chromium contexts at phone widths. Production build and four engine suites passed. The concurrent four-human API test passed.
+
+The integrated browser check passed landing Play links, mobile light/dark layouts, cross-page theme persistence without resetting seat/phase/vote/promise, audio-start failure/retry and rapid-toggle mute behavior, saved distinct characters, two-human-plus-two-companion roster, failed vote retry, duplicate-tap guard and server-confirmed count, reconnect, and visible timer/action route during voting. Companion commitment was observed at 1540 ms after the server phase start in this sample. The helper uses only a public observation projection, with no access to sealed actions, hidden assignments, or private consistency ratings.
+
+Controlled clock forward/backward, offline/reconnect, and delayed-response checks also passed on this candidate. See `evidence/release-four-qa.json` and `evidence/clock-recovery-release-four.json`. These are local results, not public negative tests or physical device tests. The first UI test run required correcting a test selector because the second traveler's default character was already selected; it was rerun with an actual changed choice.
+
+Version 4 publication is pending at this source revision. Physical phones, audible output, and deployed forced audio-failure tests remain unverified. Existing public version 3 remains available until publication succeeds.

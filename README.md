@@ -1,6 +1,6 @@
 # Handshake Crucible
 
-**Public game preview:** [Play Handshake](https://handshake-dawn-jj.chalkyfinch36.chatgpt.site/play) · [Introduction](https://handshake-dawn-jj.chalkyfinch36.chatgpt.site/landing.html)
+**Public game preview:** [Play Handshake](https://handshake-crucible.chalkyfinch36.chatgpt.site/play) · [Introduction](https://handshake-crucible.chalkyfinch36.chatgpt.site/landing.html)
 
 A multiplayer social-decision prototype: travelers make a public promise, commit a sealed action, and see the accepted outcome in a shared ledger. Josh Park directs the experience and evaluates it through play feedback. AI assists with specification, implementation, testing, and review.
 
@@ -15,6 +15,8 @@ A multiplayer social-decision prototype: travelers make a public promise, commit
 
 Rooms allow 4–8 seats, expire after 24 hours, and keep the current seat in the original browser tab. The introduction includes a separate solo illustration; that illustration is not a multiplayer session. No recorded playthrough is supplied yet. A 45-second manual screen recording is a fallback; edited waiting should be labeled, and a recording does not prove multiplayer synchronization.
 
+See the [staged delivery log](docs/STAGED_DELIVERY.md) for approved, implemented, verified, and deployed status by revision.
+
 ## Scope and evidence
 
 | Feature | Approved | Implemented | Verified |
@@ -22,14 +24,14 @@ Rooms allow 4–8 seats, expire after 24 hours, and keep the current seat in the
 | Room creation, invite link/code, explicit joining | Yes | Yes | Local two-session room flow; physical phone check pending |
 | Readable room code, copy fallback, pasted codes, lobby seat count | Yes | Yes | Local phone-width browser checks; see evidence |
 | Timer stability and recovery | Yes | Monotonic elapsed-time display; response phase identity/state version; reconnect refresh | Controlled local clock, background, reconnect, delayed-response tests; production symptoms require follow-up |
-| Sound toggle and round notifications | Yes | Gesture-unlocked reusable Web Audio context | Local context runs/mutes; audible phone output pending |
-| Solo companion progression after accepted decisions | Yes, separate scope addition | Yes | Engine regression test; human promise alone does not advance |
+| Sound toggle and round notifications | Yes | Confirmed audio state, transient notices, retryable failures; no sound success banner | Local failure/retry and rapid-toggle tests passed; deployed negative tests and audible phone output pending |
+| Companion commits and progression | Yes, implementation approved | Public-observation policy, 1–1.5 second server due times with active polling; resolve only after all decisions or deadline | Engine tests and local two-session sample: companions committed at 1.54 seconds; not an unconditional latency guarantee |
 | Stream-inspired ledger presentation | Yes | Yes; server events only | Build/browser check; no human chat implied |
-| Lobby character picker, persisted choices, shared four-seat roster | Yes, implementation approved | Not implemented | [Acceptance criteria](docs/LOBBY_CHARACTER_PICKER.md); physical two-phone test pending |
+| Lobby character picker, persisted choices, shared four-seat roster | Yes, implementation approved | Yes, cosmetic identity separate from gameplay role | Local two-session selection/reload passed with exactly two human and two companion seats; physical phones pending |
 | Experimental Secret Elo and badges | Yes, implementation approved | Not implemented; no persistent ranking system | Not verified; existing private journey consistency score is not Elo matchmaking |
 | New resources, messaging/DMs, directory/spectators | Yes, implementation approved | Not implemented | Contracts and tests pending |
 | Claude/MCP participation, bot takeover, branching research | Yes, implementation approved | Not implemented | Integration, permissions, behavior contracts, and tests pending |
-| System/light/dark theme, remembered preference | Yes, implementation approved | Not implemented | Switching without seat/selection/scroll reset and theme contrast checks pending |
+| System/light/dark theme, remembered preference | Yes, implementation approved | Yes, shared across landing and game | Local narrow-screen light/dark and state-preservation tests passed; physical phone visual review pending |
 | Custom domain | Purchase/migration remain deferred under the no-spend constraint | Not implemented | Existing URL retained |
 
 Approval in this table records Josh’s decision to implement the relevant game asides; unfinished features remain unimplemented, with contracts and verification still required. Approval and completion are separate states. The theme direction is design rationale inspired by Exodus, not a spiritual measure of players.

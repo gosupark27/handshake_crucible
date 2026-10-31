@@ -1,3 +1,5 @@
+> Update: Implemented in the release-4 candidate and verified locally. See [release evidence](RELEASE_VERIFICATION.md) for exact tests and deployment status. The original request below is retained as history. Physical/deployed checks remain separate.
+
 # Lobby character picker — approved, not implemented
 
 Josh approved this addition during the October 30 session. The request arrived at approximately 11:39 PM Phoenix, immediately before the explicit 11:40 PM hard stop. It has not been implemented, tested, or deployed. Version 3 remains the public release.

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "runtimeRevision": "see source commit in RELEASE_VERIFICATION.md",
+  "environment": "local built Worker and D1, two Chromium browser contexts",
+  "botCommitMs": 1540,
+  "checks": [
+    "three prominent play links all point to /play",
+    "landing mobile light/dark no overflow",
+    "theme persists across pages and does not reset seat/phase/vote/promise",
+    "audio start failure retry, rapid on/off ends muted, no sound success banner",
+    "two independent characters persist, exactly two companion seats",
+    "bot commits target one to two seconds using permitted public information",
+    "failed vote retry, rapid taps one confirmed count, reconnect retains confirmation",
+    "countdown and pending action route remain in voting"
+  ],
+  "limits": [
+    "Physical phone output and public negative audio tests unverified",
+    "Not every reported production clock symptom is reproduced"
+  ]
+}

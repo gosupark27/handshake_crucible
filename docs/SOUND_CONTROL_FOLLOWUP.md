@@ -1,3 +1,5 @@
+> Update: Implemented in the release-4 candidate and verified locally. See [release evidence](RELEASE_VERIFICATION.md) for exact tests and deployment status. The original request below is retained as history. Physical/deployed checks remain separate.
+
 # Sound control refinement — approved, not implemented
 
 Keep the existing public URL. This follow-up was received immediately before the 11:40 PM Phoenix session hard stop. No new sound-control release or deployed failure test is claimed.

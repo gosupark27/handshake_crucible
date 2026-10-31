@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "readings": [
+    {
+      "label": "initial",
+      "seconds": 60,
+      "phase": "9643NC935KX7:0:live:1793429560105",
+      "stateVersion": "2"
+    },
+    {
+      "label": "clock forward",
+      "seconds": 60,
+      "phase": "9643NC935KX7:0:live:1793429560105",
+      "stateVersion": "3"
+    },
+    {
+      "label": "clock backward",
+      "seconds": 59,
+      "phase": "9643NC935KX7:0:live:1793429560105",
+      "stateVersion": "4"
+    },
+    {
+      "label": "offline",
+      "seconds": 56,
+      "phase": "9643NC935KX7:0:live:1793429560105",
+      "stateVersion": "4"
+    },
+    {
+      "label": "reconnected",
+      "seconds": 55,
+      "phase": "9643NC935KX7:0:live:1793429560105",
+      "stateVersion": "7"
+    },
+    {
+      "label": "before delayed response",
+      "seconds": 55,
+      "phase": "9643NC935KX7:0:live:1793429560105",
+      "stateVersion": "7"
+    },
+    {
+      "label": "after delayed response",
+      "seconds": 50,
+      "phase": "9643NC935KX7:0:live:1793429560105",
+      "stateVersion": "9"
+    }
+  ],
+  "delayedResponses": 2,
+  "environment": "local built Cloudflare Worker + Chromium",
+  "limits": "Controlled scenarios only; not proof of every reported production symptom"
+}
