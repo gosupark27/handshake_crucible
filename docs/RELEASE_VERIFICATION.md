@@ -20,8 +20,10 @@ Evidence: [sanitized reports and timer traces](evidence/). Browser runs used the
 
 ## Public release and remaining checks
 
-Sites returned deployment success for version 3 on October 30, 2026 at 11:32 PM Phoenix. Deployed source: `79fa0e4cb2200de473b516e1138544f3c2ec0e16`. Public URL: https://handshake-dawn-jj.chalkyfinch36.chatgpt.site/play. Audience remains public. No public two-session interaction is claimed. An independent reader initially returned older wording after deployment, so that response is not evidence of fresh HTML; deployment success and local verification are distinct from fresh public content confirmation.
+Sites returned deployment success for version 3 on October 30, 2026 at 11:32 PM Phoenix. Deployed source: `79fa0e4cb2200de473b516e1138544f3c2ec0e16`. Public URL: https://handshake-dawn-jj.chalkyfinch36.chatgpt.site/play. Audience remains public. No public two-session interaction is claimed. An independent reader initially returned older wording after deployment; that response was excluded. A subsequent public read with the release query returned the updated Create a room and Join a room headings without sign-in. This confirms fresh public entry content, not the public multiplayer interaction.
 
 Physical test for Josh and Joseph: create room, copy invite, open on the second phone, verify prefill and distinct seats; then check shared phase, one action per submission, background/rejoin recovery, and audible/muted sound. A manual flow recording is optional and does not replace this test.
 
 Known unresolved scope: persistent Secret Elo, new resources, chat/DMs, directory/spectators, autonomous scheduling and external agent integration. Approval is recorded; implementation is not claimed. The existing public URL is retained; no domain was purchased. The portfolio is unchanged.
+
+Browser test reproduction (optional Playwright installation required): set `PLAYWRIGHT_MODULE` to your Playwright package, `CHROMIUM_PATH` to the browser executable, and `TEST_ORIGIN` to the local built preview, then run the scripts under `tests/browser/`. Their sanitized reports/screenshots are written under `/tmp`. The recorded evidence was produced by the equivalent executor scripts against the runtime revision identified above.
