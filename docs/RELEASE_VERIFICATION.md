@@ -20,7 +20,7 @@ Evidence: [sanitized reports and timer traces](evidence/). Browser runs used the
 
 ## Public release and remaining checks
 
-Publication is pending at this documentation revision. Check the deployment record for the selected saved version before describing the candidate as live.
+Sites returned deployment success for version 3 on October 30, 2026 at 11:32 PM Phoenix. Deployed source: `79fa0e4cb2200de473b516e1138544f3c2ec0e16`. Public URL: https://handshake-dawn-jj.chalkyfinch36.chatgpt.site/play. Audience remains public. No public two-session interaction is claimed. An independent reader initially returned older wording after deployment, so that response is not evidence of fresh HTML; deployment success and local verification are distinct from fresh public content confirmation.
 
 Physical test for Josh and Joseph: create room, copy invite, open on the second phone, verify prefill and distinct seats; then check shared phase, one action per submission, background/rejoin recovery, and audible/muted sound. A manual flow recording is optional and does not replace this test.
 

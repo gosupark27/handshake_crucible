@@ -4,7 +4,7 @@
 
 A multiplayer social-decision prototype: travelers make a public promise, commit a sealed action, and see the accepted outcome in a shared ledger. Josh Park directs the experience and evaluates it through play feedback. AI assists with specification, implementation, testing, and review.
 
-**Release status:** The existing public preview is available. The release candidate in this repository has been tested locally against a built Cloudflare Worker; publication and physical two-phone checks are recorded separately. Approval is authorization to attempt work, not evidence that it succeeded. See [the release evidence](docs/RELEASE_VERIFICATION.md) for the tested revision and deployment status.
+**Release status:** Version 3 was deployed successfully through Sites on October 30, 2026 (11:32 PM Phoenix). Deployed source: `79fa0e4cb2200de473b516e1138544f3c2ec0e16`. Automated checks ran locally against the built Cloudflare Worker; physical two-phone checks remain pending. Documentation after that source revision does not change the deployed runtime. Approval is authorization to attempt work, not evidence that it succeeded. See [the release evidence](docs/RELEASE_VERIFICATION.md) for the tested revision and deployment status.
 
 ## What to try
 
