@@ -25,10 +25,13 @@ Rooms allow 4–8 seats, expire after 24 hours, and keep the current seat in the
 | Sound toggle and round notifications | Yes | Gesture-unlocked reusable Web Audio context | Local context runs/mutes; audible phone output pending |
 | Solo companion progression after accepted decisions | Yes, separate scope addition | Yes | Engine regression test; human promise alone does not advance |
 | Stream-inspired ledger presentation | Yes | Yes; server events only | Build/browser check; no human chat implied |
-| Experimental Secret Elo and badges | Yes, exploration | No persistent ranking system | Not verified; existing private journey consistency score is not Elo matchmaking |
-| New resources, messaging/DMs, directory/spectators | Yes, exploration | Not implemented | Contracts and tests pending |
-| Claude/MCP participation, bot takeover, branching research | Yes, exploration | Not implemented | Integration, permissions, behavior contracts, and tests pending |
-| Custom domain | Deferred | No domain purchase or migration | Existing URL retained |
+| Experimental Secret Elo and badges | Yes, implementation approved | Not implemented; no persistent ranking system | Not verified; existing private journey consistency score is not Elo matchmaking |
+| New resources, messaging/DMs, directory/spectators | Yes, implementation approved | Not implemented | Contracts and tests pending |
+| Claude/MCP participation, bot takeover, branching research | Yes, implementation approved | Not implemented | Integration, permissions, behavior contracts, and tests pending |
+| System/light/dark theme, remembered preference | Yes, implementation approved | Not implemented | Switching without seat/selection/scroll reset and theme contrast checks pending |
+| Custom domain | Purchase/migration remain deferred under the no-spend constraint | Not implemented | Existing URL retained |
+
+Approval in this table records Josh’s decision to implement the relevant game asides; unfinished features remain unimplemented, with contracts and verification still required. Approval and completion are separate states. The theme direction is design rationale inspired by Exodus, not a spiritual measure of players.
 
 The frozen design baseline and live implementation are distinct. Crucible begins from the available live snapshot, preserved at `live-snapshot-v2`. The complete historical frozen specification and old engine source were unavailable in this workspace, so full conformance is not claimed. [Provenance and interruption checkpoint](docs/LIVE_SNAPSHOT_CHECKPOINT.md).
 
