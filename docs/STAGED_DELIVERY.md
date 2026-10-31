@@ -4,9 +4,9 @@ Approval authorizes implementation; it does not establish completion or test suc
 
 | Stage | Approved | Implemented | Verified | Deployed / limits |
 |---|---|---|---|---|
-| Voting, theme, sound state fixes | Yes | Runtime through `b01286d`; themes `697b94c`, vote/audio `2aa0e8d` | Local two-session retry/rapid-tap, muted audio race, and mobile theme tests passed | Candidate; public version 4 pending. Physical output and deployed negative tests pending |
-| Character picker and companions | Yes | Picker `6c87759`; fast public-observation companion policy `35e1e7b` | Local independent choices/reload, exact two-bot roster, 1540 ms companion sample, engine tests passed | Candidate; not an unattended scheduler or latency guarantee |
-| Voting/action clarity and player landing | Yes | Landing `7a41c15`; countdown/action route `bac41f3`; later CTA edits included | Local mobile layouts, three primary Play links to `/play`, action accessible during voting | Candidate; existing clock evidence is scenario-specific |
+| Voting, theme, sound state fixes | Yes | Runtime through `b01286d`; themes `697b94c`, vote/audio `2aa0e8d` | Local two-session retry/rapid-tap, muted audio race, and mobile theme tests passed | Version 4: `455ac22`, deployment succeeded. Physical output and deployed negative tests pending |
+| Character picker and companions | Yes | Picker `6c87759`; fast public-observation companion policy `35e1e7b` | Local independent choices/reload, exact two-bot roster, 1540 ms companion sample, engine tests passed | Version 4: `455ac22`; not an unattended scheduler or latency guarantee |
+| Voting/action clarity and player landing | Yes | Landing `7a41c15`; countdown/action route `bac41f3`; later CTA edits included | Local mobile layouts, three primary Play links to `/play`, action accessible during voting | Version 4: `455ac22`; existing clock evidence is scenario-specific |
 | Style and original music | Yes | Stream ledger deployed in version 3; theme implemented in candidate; no music track or separate music-volume control | Local themes checked; cue context tests only | Music unimplemented; no soundtrack implied by cue tones |
 | Presets, human chat, discovery, spectators | Yes | Not implemented | Not verified; exact visibility, retention, moderation and unlock contracts required | Not deployed |
 | Progression, companion continuity, experimental Elo | Yes | Not implemented; existing private journey score is not persistent Elo | Not verified; identity, scoring and visibility contracts required | Not deployed |
