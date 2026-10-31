@@ -5,3 +5,5 @@
 
 /* Stream-inspired ledger skin; accepted server events remain the only messages. */
 .ledger{border-top:3px solid #637f55;background:#f7f5ec}.ledger h2{font:700 20px monospace;letter-spacing:-.5px}.entries p{font-family:monospace;line-height:1.7}.entries span{border-radius:3px;background:#e5e8d9;align-self:flex-start;padding:3px 6px;color:#293d32}.ledger .eyebrow{display:block;padding-bottom:12px;border-bottom:1px solid #bec6b1}
+
+.notice{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:100;max-width:calc(100vw - 32px);width:max-content;margin:0;box-shadow:0 4px 20px #293d3220}.voting{max-width:680px;margin:28px auto;padding:24px;border:1px solid #a8b09c;background:#f7f5ec}.voting p{font-size:13px}.voting button{margin-top:16px;min-height:44px}.room-details{border:1px solid #c3c8b7;padding:18px;margin:24px 0}.room-details summary,.ledger summary{cursor:pointer;min-height:32px;font-weight:bold}.room-details .meters{margin-top:20px}.ledger summary{margin-bottom:18px}.error button{min-height:44px}
