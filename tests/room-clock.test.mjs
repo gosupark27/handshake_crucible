@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {remainingSeconds} from '../lib/room-clock.ts';
+const anchor={serverNow:100000,deadline:160000,localNow:500};
+assert.equal(remainingSeconds(anchor,500),60);
+assert.equal(remainingSeconds(anchor,20500),40);
+assert.equal(remainingSeconds(anchor,100000),0);
+const saved=Date.now;Date.now=()=>saved()+60000;
+assert.equal(remainingSeconds(anchor,20500),40);
+Date.now=saved;
+console.log('PASS monotonic countdown ignores device wall-clock changes and clamps expiry');
