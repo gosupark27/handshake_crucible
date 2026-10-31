@@ -25,6 +25,7 @@ Rooms allow 4–8 seats, expire after 24 hours, and keep the current seat in the
 | Sound toggle and round notifications | Yes | Gesture-unlocked reusable Web Audio context | Local context runs/mutes; audible phone output pending |
 | Solo companion progression after accepted decisions | Yes, separate scope addition | Yes | Engine regression test; human promise alone does not advance |
 | Stream-inspired ledger presentation | Yes | Yes; server events only | Build/browser check; no human chat implied |
+| Lobby character picker, persisted choices, shared four-seat roster | Yes, implementation approved | Not implemented | [Acceptance criteria](docs/LOBBY_CHARACTER_PICKER.md); physical two-phone test pending |
 | Experimental Secret Elo and badges | Yes, implementation approved | Not implemented; no persistent ranking system | Not verified; existing private journey consistency score is not Elo matchmaking |
 | New resources, messaging/DMs, directory/spectators | Yes, implementation approved | Not implemented | Contracts and tests pending |
 | Claude/MCP participation, bot takeover, branching research | Yes, implementation approved | Not implemented | Integration, permissions, behavior contracts, and tests pending |
